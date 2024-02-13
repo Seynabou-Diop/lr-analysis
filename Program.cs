@@ -17,28 +17,28 @@ namespace AnalysisAPISample
         {
             analysisApi = new LrAnalysis();
 
-            if (args.Length < 1)
-            {
-                Console.WriteLine("Please provide the test number as a command-line argument.");
-                return;
-            }
+            // if (args.Length < 1)
+            // {
+            //     Console.WriteLine("Please provide the test number as a command-line argument.");
+            //     return;
+            // }
 
-            string testNumber = args[0];
-            string lrrRootPath = Environment.GetEnvironmentVariable("LRR_ROOT_PATH");
-            string exportedRootPath = Environment.GetEnvironmentVariable("EXPORTED_ROOT_PATH") + "\\" + testNumber;
+            string testNumber = "4094";
+            string lrrRootPath = "C:\\workspace\\results\\nc2\\NNCTRA0103";
+            string exportedRootPath = "C:\\workspace\\results\\exported\\NNCTRA0103\\" + testNumber;
 
-            if (string.IsNullOrEmpty(lrrRootPath) || string.IsNullOrEmpty(exportedRootPath))
-            {
-                Console.WriteLine("Please set the environment variables LRR_ROOT_PATH and EXPORTED_ROOT_PATH.");
-                return;
-            }
+            // if (string.IsNullOrEmpty(lrrRootPath) || string.IsNullOrEmpty(exportedRootPath))
+            // {
+            //     Console.WriteLine("Please set the environment variables LRR_ROOT_PATH and EXPORTED_ROOT_PATH.");
+            //     return;
+            // }
 
             string resName = Path.Combine(Path.Combine(lrrRootPath, testNumber), $"{testNumber}.lrr");
             string sessionName = Path.Combine(Path.Combine(exportedRootPath, "LRA"), "lra.lra");
 
             //if (CreateSession(sessionName, resName))
             //{
-                Console.WriteLine("Session created successfully.");
+                //Console.WriteLine("Session created successfully.");
                 //string dbPath = Path.ChangeExtension(sessionName, ".db");
                 string dbPath = "C:\\workspace\\results\\exported\\NNCTRA0103\\4094\\LRA\\lra.db";
                 ExportDatabaseData(dbPath, testNumber, exportedRootPath);
